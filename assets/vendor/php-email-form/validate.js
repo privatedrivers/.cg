@@ -20,6 +20,7 @@
       if( ! action ) {
         displayError(thisForm, 'The form action property is not set!')
         return;
+          <form action="mailto:privatedrivers7@gmail.com">
       }
       thisForm.querySelector('.loading').classList.add('d-block');
       thisForm.querySelector('.error-message').classList.remove('d-block');
