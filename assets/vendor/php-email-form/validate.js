@@ -3,7 +3,7 @@
 (function send email () {
     Email.send({
 				Host: "smtp.gmail.com",
-        To : '<privatedrivers7@gmail.com>',
+        To : 'privatedrivers7@gmail.com',
 				From : "<sender’s email address>",
 				Subject : "<email subject>",
 				Body : "<email body>",
