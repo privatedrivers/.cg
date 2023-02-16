@@ -1,9 +1,17 @@
-/**
-* PHP Email Form Validation - v3.5
-* URL: https://bootstrapmade.com/php-email-form/
-* Author: BootstrapMade.com
+
 */
-(function () {
+(function send email () {
+    Email.send({
+				Host: "smtp.gmail.com",
+        To : '<privatedrivers7@gmail.com>',
+				From : "<sender’s email address>",
+				Subject : "<email subject>",
+				Body : "<email body>",
+			})
+			.then(function(message){
+				alert("mail sent successfully")
+			});
+		}
   "use strict";
 
   let forms = document.querySelectorAll('.php-email-form');
@@ -20,7 +28,6 @@
       if( ! action ) {
         displayError(thisForm, 'The form action property is not set!')
         return;
-          <form action="mailto:privatedrivers7@gmail.com">
       }
       thisForm.querySelector('.loading').classList.add('d-block');
       thisForm.querySelector('.error-message').classList.remove('d-block');
