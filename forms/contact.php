@@ -9,11 +9,17 @@
   // Replace contact@example.com with your real receiving email address
   $to = 'privatedrivers7@gmail.com';
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+  if (filter_var($from, FILTER_VALIDATE_EMAIL)) {
+    $headers = ['From' => ($name?"<$name> ":'').$from,
+            'X-Mailer' => 'PHP/' . phpversion()
+           ];
+
+    mail($to, $subject, $message."\r\n\r\nfrom: ".$_SERVER['REMOTE_ADDR'], $headers);
+    die('OK');
+    
+} else {
+    die('Adresse invalide');
+}
 
   $contact = new PHP_Email_Form;
   $contact->ajax = true;
