@@ -1,17 +1,9 @@
-
+/**
+* PHP Email Form Validation - v3.5
+* URL: https://bootstrapmade.com/php-email-form/
+* Author: BootstrapMade.com
 */
-(function send email () {
-    Email.send({
-				Host: "smtp.gmail.com",
-        To : 'privatedrivers7@gmail.com',
-				From : "<sender’s email address>",
-				Subject : "<email subject>",
-				Body : "<email body>",
-			})
-			.then(function(message){
-				alert("mail sent successfully")
-			});
-		}
+(function () {
   "use strict";
 
   let forms = document.querySelectorAll('.php-email-form');
@@ -59,7 +51,7 @@
 
   function php_email_form_submit(thisForm, action, formData) {
     fetch(action, {
-      method: 'POST',
+      method: 'SEND',
       body: formData,
       headers: {'X-Requested-With': 'XMLHttpRequest'}
     })
