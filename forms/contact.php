@@ -7,7 +7,7 @@
   */
 
   // Replace contact@example.com with your real receiving email address
-  $to = 'privatedrivers7@gmail.com';
+  $receiving_email_address = 'privatedrivers7@gmail.com';
 
   if (filter_var($from, FILTER_VALIDATE_EMAIL)) {
     $headers = ['From' => ($name?"<$name> ":'').$from,
