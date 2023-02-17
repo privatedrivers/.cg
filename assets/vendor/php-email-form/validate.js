@@ -51,7 +51,7 @@
 
   function php_email_form_submit(thisForm, action, formData) {
     fetch(action, {
-      method: 'SEND',
+      method: 'SUBMIT',
       body: formData,
       headers: {'X-Requested-With': 'XMLHttpRequest'}
     })
