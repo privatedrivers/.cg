@@ -1,27 +1,22 @@
-<?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
+<?php 
 
-  // Replace contact@example.com with your real receiving email address
- $to = 'privatedrivers7@gmail.com';
-$name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
-$from = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-$subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_SPECIAL_CHARS);
-$message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
+$msg = "Nom:\t$Nomr\n";
+$msg .= "E-mail:\t$email\n";
+$msg .= "Message:\t$message\n\n";
 
-if (filter_var($from, FILTER_VALIDATE_EMAIL)) {
-    $headers = ['From' => ($name?"<$name> ":'').$from,
-            'X-Mailer' => 'PHP/' . phpversion()
-           ];
+$recipient = "privatedrivers7@gmail.com";
+$subject = "Formulaire";
 
-    mail($to, $subject, $message."\r\n\r\nfrom: ".$_SERVER['REMOTE_ADDR'], $headers);
-    die('OK');
-    
-} else {
-    die('Adresse invalide');
-}
-?>
+$mailheaders = "From: privatedrivers.github.io/.cg/<> \n";
+$mailheaders .= "Reply-To: $CP\n\n";
+
+mail($recipient, $subject, $msg, $mailheaders);
+
+echo "<HTML><HEAD>";
+echo "<TITLE>Formulaire envoyer!</TITLE></HEAD><BODY>";
+echo "<H1 align=center>Merci, $nom </H1>";
+echo "<P align=center>";
+echo "Votre formulaire à bien été envoyé !</P>";
+echo "</BODY></HTML>";
+
+?> 
